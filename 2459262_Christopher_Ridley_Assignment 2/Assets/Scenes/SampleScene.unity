@@ -691,7 +691,6 @@ GameObject:
   m_Component:
   - component: {fileID: 203901984}
   - component: {fileID: 203901983}
-  - component: {fileID: 203901982}
   m_Layer: 0
   m_Name: Chest
   m_TagString: Untagged
@@ -699,20 +698,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &203901982
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 203901981}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 223dd8a833c3e94449721451ee90b310, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  chestItems: []
-  capacity: 4
 --- !u!114 &203901983
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1171,7 +1156,6 @@ GameObject:
   m_Component:
   - component: {fileID: 575227708}
   - component: {fileID: 575227710}
-  - component: {fileID: 575227709}
   m_Layer: 5
   m_Name: ShopUI
   m_TagString: Untagged
@@ -1202,21 +1186,6 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 44}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &575227709
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 575227707}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e26fe2d4a20587b41817e280459b549c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  shop: {fileID: 1839773042}
-  itemUIPrefab: {fileID: 67772297384024082, guid: f0ac390d88e9bb64786846023b515ce8, type: 3}
-  itemUIParent: {fileID: 955658155}
 --- !u!114 &575227710
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2291,6 +2260,8 @@ MonoBehaviour:
   player: {fileID: 1339386899}
   itemUIPrefab: {fileID: 3082564647717601230, guid: ac7a8ef0944c29f4cb16fc1d11f77510, type: 3}
   itemUIParent: {fileID: 1759301631}
+  chestUpgradeText1: {fileID: 285345150}
+  chestUpgradeText2: {fileID: 1653825321}
   upgradeChestButton: {fileID: 243484537}
 --- !u!1 &1339386898
 GameObject:
@@ -3421,7 +3392,6 @@ GameObject:
   m_Component:
   - component: {fileID: 1839773043}
   - component: {fileID: 1839773042}
-  - component: {fileID: 1839773041}
   m_Layer: 0
   m_Name: Shop
   m_TagString: Untagged
@@ -3429,21 +3399,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &1839773041
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1839773040}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 02653c093a9034746a5090cec98e4ea3, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  player: {fileID: 1339386899}
-  shopItems: []
-  shopVisits: 0
 --- !u!114 &1839773042
 MonoBehaviour:
   m_ObjectHideFlags: 0

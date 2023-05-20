@@ -70,13 +70,12 @@ public class Shop : MonoBehaviour
     }
 
     public void BuyItem(Item item)
-{
-    if (player.CanAffordItem(item))
+    {
+    if (player.CanAffordItem(item) && player.BackpackHasSpace())
     {
         player.BuyItem(item);
-        shopItems.Remove(item);
         ShopUI.instance.UpdateShopUI();
-        BackpackUI.instance.UpdateBackpackUI(); // Update backpack UI after buying an item
+        BackpackUI.instance.UpdateBackpackUI(); 
     }
-}
+    }
 }

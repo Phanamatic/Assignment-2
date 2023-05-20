@@ -35,11 +35,11 @@ public class Player : MonoBehaviour
 
     public void BuyItem(Item item)
     {
-        if (CanAffordItem(item) && BackpackHasSpace())
-        {
-            currency -= item.cost;
-            AddToBackpack(item);
-        }
+    if (CanAffordItem(item) && BackpackHasSpace())
+    {
+        currency -= item.cost;
+        AddToBackpack(item.Clone());
+    }
     }
 
     public void SellItem(Item item)
@@ -54,7 +54,6 @@ public class Player : MonoBehaviour
     {
         currency -= 10;
         capacity += 2;
-        Chest.instance.capacity = int.MaxValue; // Make chest capacity unlimited
         BackpackUI.instance.UpdateBackpackUI(); // Update UI when capacity upgraded
     }
     }

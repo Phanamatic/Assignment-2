@@ -7,9 +7,10 @@ public class Chest : MonoBehaviour
     public int capacity = 4;
 
     public bool ChestHasSpace()
-    {
-        return chestItems.Count < capacity;
-    }
+{
+    if (capacity == int.MaxValue) return true;
+    return chestItems.Count < capacity;
+}
 
     public static Chest instance;
 

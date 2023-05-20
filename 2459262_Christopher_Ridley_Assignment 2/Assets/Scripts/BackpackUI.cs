@@ -46,8 +46,8 @@ public class BackpackUI : MonoBehaviour
     }
 
     public void MoveToChest(Item item)
-    {
-    if (chest.ChestHasSpace()) 
+{
+    if (chest.ChestHasSpace())
     {
         player.backpack.Remove(item);
         chest.chestItems.Add(item);
@@ -59,7 +59,8 @@ public class BackpackUI : MonoBehaviour
     {
         Debug.Log("Chest is full!");
     }
-    }
+}
+
 
     public void SellItem(Item item)
     {

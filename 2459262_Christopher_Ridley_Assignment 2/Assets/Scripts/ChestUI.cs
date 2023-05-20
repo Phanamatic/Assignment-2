@@ -1,6 +1,7 @@
 using UnityEngine;
 using System.Collections.Generic;
 using UnityEngine.UI;
+using TMPro;
 
 public class ChestUI : MonoBehaviour
 {
@@ -11,7 +12,10 @@ public class ChestUI : MonoBehaviour
 
     public static ChestUI instance;
 
-public Button upgradeChestButton;
+    public TextMeshProUGUI chestUpgradeText1;
+    public TextMeshProUGUI chestUpgradeText2;
+
+    public Button upgradeChestButton;
 
     private void Start()
     {
@@ -21,6 +25,12 @@ public Button upgradeChestButton;
     public void UpgradeChest()
     {
     player.UpgradeChestCapacity();
+    if (Chest.instance.capacity == int.MaxValue) 
+    {
+        upgradeChestButton.gameObject.SetActive(false);
+        chestUpgradeText1.gameObject.SetActive(false);
+        chestUpgradeText2.gameObject.SetActive(false);
+    }
     }
 
     private void Awake()
