@@ -17,11 +17,13 @@ public class ChestUI : MonoBehaviour
 
     public Button upgradeChestButton;
 
+    // Adds a executable to the chest upgrade button
     private void Start()
     {
     upgradeChestButton.onClick.AddListener(() => { UpgradeChest(); });
     }
 
+    // Increases the chest capacity to maximum and then hides the etxt and button.
     public void UpgradeChest()
     {
     player.UpgradeChestCapacity();
@@ -33,6 +35,7 @@ public class ChestUI : MonoBehaviour
     }
     }
 
+    // Debug - Same error seen in other scripts. Corrected
     private void Awake()
     {
         if (instance != null)
@@ -44,13 +47,14 @@ public class ChestUI : MonoBehaviour
         instance = this;
     }
 
+    // 
     public void UpdateChestUI()
-    {
+    {   // First destroys all the initial objects
         foreach (Transform child in itemUIParent)
         {
             Destroy(child.gameObject);
         }
-
+        // `sets up the new item prefabs
         foreach (Item item in chest.chestItems)
         {
             GameObject itemUIGameObject = Instantiate(itemUIPrefab, itemUIParent);
@@ -60,9 +64,10 @@ public class ChestUI : MonoBehaviour
         }
     }
 
+    // Method used to move items between the chest and the backpack.
     public void MoveToBackpack(Item item)
-{
-    // Only need to check if the player's backpack has room before moving the item.
+    {
+    // calls on the method to check the backpakc ahs space befor moving items
     if (player.BackpackHasSpace())
     {
         chest.chestItems.Remove(item);
@@ -74,7 +79,7 @@ public class ChestUI : MonoBehaviour
     {
         Debug.Log("Backpack is full!");
     }
-}
+    }
 
 
     

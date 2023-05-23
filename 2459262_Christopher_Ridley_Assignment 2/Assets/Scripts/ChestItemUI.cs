@@ -15,6 +15,7 @@ public class ChestItemUI : MonoBehaviour
     [SerializeField]
     private Button moveToBackpackButton;
 
+    // Initialize method called to populate the item prefabs ui. Also creates the executable for the prefab button (move to backpack)
     public void Initialize()
     {
         itemNameText.text = item.name;

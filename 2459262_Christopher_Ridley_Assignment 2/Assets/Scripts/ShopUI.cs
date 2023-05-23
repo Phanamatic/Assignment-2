@@ -9,6 +9,7 @@ public class ShopUI : MonoBehaviour
 
     public static ShopUI instance;
 
+    // debugging - same error as seen in player and shop script
     private void Awake()
     {
         if (instance != null)
@@ -20,15 +21,16 @@ public class ShopUI : MonoBehaviour
         instance = this;
     }
 
+    // Method to update the shop's ui.
     public void UpdateShopUI()
     {
-    // First, destroy any existing item UIs
+    // Starts by initially destroying all existing gameobjects (prefabs)
     foreach (Transform child in itemUIParent)
     {
         Destroy(child.gameObject);
     }
 
-    // Now, create a new item UI for each item in the shop
+    // Fills up the items prefabs and populatesthe prefabs with the items data.
     foreach (Item item in shop.shopItems)
     {
         GameObject itemUIGameObject = Instantiate(itemUIPrefab, itemUIParent);
@@ -36,7 +38,7 @@ public class ShopUI : MonoBehaviour
         itemUI.item = item;
         itemUI.Initialize();
 
-        // Setup the button
+        // Sets up the button to buy items
         itemUI.itemButton.onClick.RemoveAllListeners();
         itemUI.itemButton.onClick.AddListener(() => { Shop.instance.BuyItem(item); });
     }

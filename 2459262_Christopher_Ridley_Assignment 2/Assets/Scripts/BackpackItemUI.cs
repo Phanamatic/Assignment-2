@@ -11,12 +11,14 @@ public class BackpackItemUI : MonoBehaviour
     public Button sellButton;
     public Button moveToChestButton;
 
+    // Creates the executable codes for the sell and move buttons for the backpack item prefabs
     private void Start()
     {
         sellButton.onClick.AddListener(() => { BackpackUI.instance.SellItem(item); });
         moveToChestButton.onClick.AddListener(() => { BackpackUI.instance.MoveToChest(item); });
     }
 
+    // Initialize method, called to populate prefabs ui
     public void Initialize()
     {
         itemName.text = item.name;

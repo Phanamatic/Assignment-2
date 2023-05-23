@@ -22,6 +22,7 @@ public class UIManager : MonoBehaviour
     public TextMeshProUGUI backpackCapacityText; 
     public TextMeshProUGUI playerCurrencyText;
 
+    // Adds the listeners for the buttons to open and close the shop and chests. Starts the program with both Ui's hidden (inactive)    
     private void Start()
     {
         shopOpenButton.onClick.AddListener(() => { OpenShop(); });
@@ -33,23 +34,14 @@ public class UIManager : MonoBehaviour
         chestUI.SetActive(false);
     }
 
+    // Updates the players currency balance and the players backpack balance
     private void Update()
     {
-        if(chest.chestItems.Count > 0)
-        {
-        foreach(Item item in chest.chestItems)
-        {
-     //   chestText.text += item.name + "\n";
-        }
-        }
-else
-{
-  //  chestText.text += "Empty";
-}
     backpackCapacityText.text = player.capacity.ToString();
     playerCurrencyText.text = player.currency.ToString();
     }
 
+    // Method to carry out all the actions needed to open the shop
     private void OpenShop()
     {
         shop.OpenShop();
@@ -58,17 +50,20 @@ else
         ShopUI.instance.UpdateShopUI();
     }
 
+    // method to carry out al the actions needed to open the chest
     private void OpenChest()
     {
         shopUI.SetActive(false);
         chestUI.SetActive(true);
     }
 
+    // method to close the shop
     private void CloseShop()
     {
         shopUI.SetActive(false);
     }
 
+    // method to close the chest
     private void CloseChest()
     {
         chestUI.SetActive(false);

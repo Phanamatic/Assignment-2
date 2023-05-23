@@ -13,6 +13,7 @@ public class BackpackUI : MonoBehaviour
 
     public Button upgradeButton;
 
+    // debug - seen in most scripts - fixed
     private void Awake()
     {
         if (instance != null)
@@ -24,6 +25,7 @@ public class BackpackUI : MonoBehaviour
         instance = this;
     }
 
+    // Creates a listener to execute code when the upgrade button is pressed 
     private void Start()
     {
         upgradeButton.onClick.AddListener(() => { UpgradeBackpack(); });
@@ -45,6 +47,7 @@ public class BackpackUI : MonoBehaviour
         }
     }
 
+    // Method to move items from the backapck to the chest. Checks if there is capacity. 
     public void MoveToChest(Item item)
 {
     if (chest.ChestHasSpace())
@@ -61,14 +64,15 @@ public class BackpackUI : MonoBehaviour
     }
 }
 
-
+    // Method to sell items
     public void SellItem(Item item)
     {
-        player.currency += item.cost; // Add the item cost to the player's currency
-        player.backpack.Remove(item); // Remove the item from the backpack
-        UpdateBackpackUI(); // Update the UI
+        player.currency += item.cost; // Adds the item's cost to the player's currency
+        player.backpack.Remove(item); // Removes the item from the backpack
+        UpdateBackpackUI(); // Updates the UI
     }
 
+    // Method calls on other method to upgrade the backpacks capacity
     public void UpgradeBackpack()
     {
         player.UpgradeCapacity();
